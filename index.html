@@ -3,18 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بطاقة الأعمال الذكية</title>
-    <!-- استيراد خط أنيق -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- أيقونات FontAwesome للروابط -->
+    <title>Beetle Sweet | بطاقة الكافيه الذكية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Cairo', sans-serif;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Cairo', sans-serif; }
         body {
             background: linear-gradient(135deg, #0f172a, #1e293b);
             color: #ffffff;
@@ -26,96 +19,161 @@
         }
         .card-container {
             width: 100%;
-            max-width: 400px;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
+            max-width: 420px;
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(12px);
+            border: 2px solid rgba(255, 126, 14, 0.3);
+            border-radius: 28px;
             padding: 30px 20px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
         }
-        .profile-img {
-            width: 110px;
-            height: 110px;
+        .logo-container {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 15px auto;
             border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #ff7e0e;
+            box-shadow: 0 0 20px rgba(255, 126, 14, 0.4);
+            background: #fff;
+        }
+        .logo-container img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            border: 3px solid #38bdf8;
-            margin-bottom: 15px;
         }
         h1 {
-            font-size: 24px;
+            font-size: 26px;
+            font-weight: 900;
             margin-bottom: 5px;
-            color: #f8fafc;
+            color: #ff7e0e;
+            letter-spacing: 1px;
         }
-        p.bio {
-            font-size: 14px;
-            color: #94a3b8;
-            margin-bottom: 25px;
+        p.location {
+            font-size: 13px;
+            color: #38bdf8;
+            margin-bottom: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
         }
         .links-list {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 14px;
         }
         .link-btn {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 12px;
-            background: rgba(255, 255, 255, 0.1);
+            justify-content: space-between;
+            background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
             color: #ffffff;
             text-decoration: none;
-            padding: 14px 20px;
-            border-radius: 12px;
-            font-weight: 600;
+            padding: 15px 20px;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 15px;
             transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
         .link-btn:hover {
-            background: #38bdf8;
-            color: #0f172a;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            border-color: #ff7e0e;
+            background: rgba(255, 126, 14, 0.15);
+        }
+        .link-btn.whatsapp:hover { border-color: #25D366; background: rgba(37, 211, 102, 0.15); }
+        .link-btn.instagram:hover { border-color: #E1306C; background: rgba(225, 48, 108, 0.15); }
+        .link-btn.facebook:hover { border-color: #1877F2; background: rgba(24, 119, 242, 0.15); }
+
+        .link-content {
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
         .link-btn i {
-            font-size: 18px;
+            font-size: 22px;
+        }
+        .whatsapp i { color: #25D366; }
+        .instagram i { color: #E1306C; }
+        .facebook i { color: #1877F2; }
+        .location-icon i { color: #ff7e0e; }
+
+        .arrow {
+            font-size: 14px;
+            color: #94a3b8;
         }
         .footer {
-            margin-top: 25px;
+            margin-top: 30px;
             font-size: 12px;
             color: #64748b;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 15px;
         }
     </style>
 </head>
 <body>
 
     <div class="card-container">
-        <!-- صورة الشخص أو الشركة -->
-        <img src="https://via.placeholder.com/150" alt="صورة البروفايل" class="profile-img" id="p-img">
+        <!-- شعار الكافيه -->
+        <div class="logo-container">
+            <img src="BEETLE.PNJ" alt="Beetle Sweet Logo" id="c-logo">
+        </div>
         
-        <!-- الاسم -->
-        <h1 id="p-name">اسم صاحب البطاقة</h1>
+        <!-- اسم الكافيه -->
+        <h1>BEETLE SWEET</h1>
         
-        <!-- المسمى الوظيفي أو نبذة -->
-        <p class="bio" id="p-bio">المسمى الوظيفي / الوصف التقديمي</p>
+        <!-- العنوان -->
+        <p class="location">
+            <i class="fa-solid fa-location-dot"></i>
+            قلقيلية - شارع الاستخبارات العسكرية - خلف حديقة الحيوانات
+        </p>
         
-        <!-- أزرار الروابط -->
-        <div class="links-list" id="links-container">
-            <!-- سيتم تعبئة الروابط ديناميكياً أو يدوياً -->
-            <a href="https://wa.me/" class="link-btn" target="_blank"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
-            <a href="https://instagram.com/" class="link-btn" target="_blank"><i class="fa-brands fa-instagram"></i> إنستغرام</a>
-            <a href="tel:+" class="link-btn"><i class="fa-solid fa-phone"></i> اتصال مباشر</a>
+        <!-- أزرار التواصل المباشر -->
+        <div class="links-list">
+            <!-- رابط الواتساب المباشر -->
+            <a href="https://wa.me/972566800919" class="link-btn whatsapp" target="_blank">
+                <div class="link-content">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <span>مراسلة عبر الواتساب</span>
+                </div>
+                <i class="fa-solid fa-angle-left arrow"></i>
+            </a>
+
+            <!-- رابط إنستغرام المباشر -->
+            <a href="https://instagram.com/beetle._sweet" class="link-btn instagram" target="_blank">
+                <div class="link-content">
+                    <i class="fa-brands fa-instagram"></i>
+                    <span>تابعنا على إنستغرام</span>
+                </div>
+                <i class="fa-solid fa-angle-left arrow"></i>
+            </a>
+
+            <!-- رابط فيسبوك المباشر -->
+            <a href="https://www.facebook.com/search/top?q=BEETLE%20SWEET" class="link-btn facebook" target="_blank">
+                <div class="link-content">
+                    <i class="fa-brands fa-facebook"></i>
+                    <span>صفحة الفيسبوك</span>
+                </div>
+                <i class="fa-solid fa-angle-left arrow"></i>
+            </a>
+
+            <!-- زر فتح العنوان على الخريطة -->
+            <a href="https://maps.google.com/?q=Qalqilya" class="link-btn location-icon" target="_blank">
+                <div class="link-content">
+                    <i class="fa-solid fa-map-location-dot" style="color: #ff7e0e;"></i>
+                    <span>موقعنا على الخريطة</span>
+                </div>
+                <i class="fa-solid fa-angle-left arrow"></i>
+            </a>
         </div>
 
         <div class="footer">
-            تم التطوير بواسطة مشروعك الذكي ⚡
+            Smart NFC Digital Card ⚡
         </div>
     </div>
-
-  <script>
-    // هنا يمكننا لاحقاً جلب البيانات حسب الرابط (مثلاً قراءة اسم المستخدم من الـ URL)
-    // للبدء التجريبي، يمكنك تعديل القيم يدوياً أو ربطها بقاعدة بيانات لاحقاً.
-  </script>
 
 </body>
 </html>
