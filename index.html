@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بطاقة الأعمال الذكية</title>
+    <!-- استيراد خط أنيق -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- أيقونات FontAwesome للروابط -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .card-container {
+            width: 100%;
+            max-width: 400px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .profile-img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #38bdf8;
+            margin-bottom: 15px;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+            color: #f8fafc;
+        }
+        p.bio {
+            font-size: 14px;
+            color: #94a3b8;
+            margin-bottom: 25px;
+        }
+        .links-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .link-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 14px 20px;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .link-btn:hover {
+            background: #38bdf8;
+            color: #0f172a;
+            transform: translateY(-2px);
+        }
+        .link-btn i {
+            font-size: 18px;
+        }
+        .footer {
+            margin-top: 25px;
+            font-size: 12px;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-container">
+        <!-- صورة الشخص أو الشركة -->
+        <img src="https://via.placeholder.com/150" alt="صورة البروفايل" class="profile-img" id="p-img">
+        
+        <!-- الاسم -->
+        <h1 id="p-name">اسم صاحب البطاقة</h1>
+        
+        <!-- المسمى الوظيفي أو نبذة -->
+        <p class="bio" id="p-bio">المسمى الوظيفي / الوصف التقديمي</p>
+        
+        <!-- أزرار الروابط -->
+        <div class="links-list" id="links-container">
+            <!-- سيتم تعبئة الروابط ديناميكياً أو يدوياً -->
+            <a href="https://wa.me/" class="link-btn" target="_blank"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
+            <a href="https://instagram.com/" class="link-btn" target="_blank"><i class="fa-brands fa-instagram"></i> إنستغرام</a>
+            <a href="tel:+" class="link-btn"><i class="fa-solid fa-phone"></i> اتصال مباشر</a>
+        </div>
+
+        <div class="footer">
+            تم التطوير بواسطة مشروعك الذكي ⚡
+        </div>
+    </div>
+
+  <script>
+    // هنا يمكننا لاحقاً جلب البيانات حسب الرابط (مثلاً قراءة اسم المستخدم من الـ URL)
+    // للبدء التجريبي، يمكنك تعديل القيم يدوياً أو ربطها بقاعدة بيانات لاحقاً.
+  </script>
+
+</body>
+</html>
