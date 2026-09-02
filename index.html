@@ -79,6 +79,8 @@
             transition: all 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.08);
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            cursor: pointer;
+            width: 100%;
         }
         .link-btn:hover {
             transform: translateY(-3px);
@@ -88,6 +90,7 @@
         .link-btn.whatsapp:hover { border-color: #25D366; background: rgba(37, 211, 102, 0.15); }
         .link-btn.instagram:hover { border-color: #E1306C; background: rgba(225, 48, 108, 0.15); }
         .link-btn.facebook:hover { border-color: #1877F2; background: rgba(24, 119, 242, 0.15); }
+        .link-btn.menu-btn { border-color: #ff7e0e; background: rgba(255, 126, 14, 0.1); }
 
         .link-content {
             display: flex;
@@ -101,11 +104,62 @@
         .instagram i { color: #E1306C; }
         .facebook i { color: #1877F2; }
         .location-icon i { color: #ff7e0e; }
+        .menu-icon i { color: #ff7e0e; }
 
         .arrow {
             font-size: 14px;
             color: #94a3b8;
         }
+        
+        /* Modal / Menu Overlay */
+        .menu-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .menu-content {
+            width: 100%;
+            max-width: 420px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid #ff7e0e;
+            border-radius: 28px;
+            padding: 25px 20px;
+            text-align: center;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .menu-title {
+            font-size: 22px;
+            font-weight: 900;
+            color: #ff7e0e;
+            margin-bottom: 20px;
+        }
+        .close-btn {
+            background: #ef4444;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: 700;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        .menu-image-container {
+            display: none;
+            margin-top: 15px;
+        }
+        .menu-image-container img {
+            width: 100%;
+            border-radius: 14px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
         .footer {
             margin-top: 30px;
             font-size: 12px;
@@ -119,7 +173,7 @@
 
     <div class="card-container">
         <!-- شعار الكافيه -->
-        .logo-container {
+        <div class="logo-container">
             <img src="BEETLE.PNJ.jfif" alt="Beetle Sweet Logo" id="c-logo">
         </div>
         
@@ -134,6 +188,15 @@
         
         <!-- أزرار التواصل المباشر -->
         <div class="links-list">
+            <!-- زر قائمة المنيو -->
+            <button class="link-btn menu-btn" onclick="openMenu()">
+                <div class="link-content">
+                    <i class="fa-solid fa-book-open menu-icon"></i>
+                    <span>قائمة المنيو (الأقسام والأسعار)</span>
+                </div>
+                <i class="fa-solid fa-angle-left arrow"></i>
+            </button>
+
             <!-- رابط الواتساب المباشر -->
             <a href="https://wa.me/972566800919" class="link-btn whatsapp" target="_blank">
                 <div class="link-content">
@@ -152,7 +215,7 @@
                 <i class="fa-solid fa-angle-left arrow"></i>
             </a>
 
-            <!-- رابط الفيسبوك المباشر الذي أرسلته -->
+            <!-- رابط الفيسبوك المباشر -->
             <a href="https://www.facebook.com/share/1DQ4Hu1Gde/?mibextid=wwXIfr" class="link-btn facebook" target="_blank">
                 <div class="link-content">
                     <i class="fa-brands fa-facebook"></i>
@@ -175,6 +238,66 @@
             Smart NFC Digital Card ⚡
         </div>
     </div>
+
+    <!-- نافذة المنيو التفاعلية -->
+    <div class="menu-modal" id="menuModal">
+        <div class="menu-content">
+            <div class="menu-title">اختر قسم المنيو</div>
+            <div class="links-list" id="menuCategories">
+                <button class="link-btn" onclick="showImage('img1.jpg')">
+                    <div class="link-content"><i class="fa-solid fa-utensils" style="color:#ff7e0e"></i><span>عصائر طبيعية & كوكتيل</span></div>
+                    <i class="fa-solid fa-angle-left arrow"></i>
+                </button>
+                <button class="link-btn" onclick="showImage('img2.jpg')">
+                    <div class="link-content"><i class="fa-solid fa-utensils" style="color:#ff7e0e"></i><span>مكسات عصائر طبيعية & بوظة</span></div>
+                    <i class="fa-solid fa-angle-left arrow"></i>
+                </button>
+                <button class="link-btn" onclick="showImage('img3.jpg')">
+                    <div class="link-content"><i class="fa-solid fa-utensils" style="color:#ff7e0e"></i><span>أيسات & موهيتو</span></div>
+                    <i class="fa-solid fa-angle-left arrow"></i>
+                </button>
+                <button class="link-btn" onclick="showImage('img4.jpg')">
+                    <div class="link-content"><i class="fa-solid fa-utensils" style="color:#ff7e0e"></i><span>ميلك شيك</span></div>
+                    <i class="fa-solid fa-angle-left arrow"></i>
+                </button>
+                <button class="link-btn" onclick="showImage('img5.jpg')">
+                    <div class="link-content"><i class="fa-solid fa-utensils" style="color:#ff7e0e"></i><span>مشروبات ساخنة & حلويات</span></div>
+                    <i class="fa-solid fa-angle-left arrow"></i>
+                </button>
+            </div>
+
+            <!-- عرض الصورة المحددة -->
+            <div class="menu-image-container" id="imageContainer">
+                <img id="displayedMenuImg" src="" alt="Menu Section">
+                <button class="link-btn" style="margin-top: 15px; justify-content: center; background: rgba(255,126,14,0.2);" onclick="backToCategories()">
+                    <span>العودة للأقسام</span>
+                </button>
+            </div>
+
+            <button class="close-btn" onclick="closeMenu()">إغلاق المنيو</button>
+        </div>
+    </div>
+
+    <script>
+        function openMenu() {
+            document.getElementById('menuModal').style.display = 'flex';
+        }
+        function closeMenu() {
+            document.getElementById('menuModal').style.display = 'none';
+            backToCategories();
+        }
+        function showImage(imgName) {
+            document.getElementById('menuCategories').style.display = 'none';
+            const imgContainer = document.getElementById('imageContainer');
+            const imgElement = document.getElementById('displayedMenuImg');
+            imgElement.src = imgName;
+            imgContainer.style.display = 'block';
+        }
+        function backToCategories() {
+            document.getElementById('imageContainer').style.display = 'none';
+            document.getElementById('menuCategories').style.display = 'flex';
+        }
+    </script>
 
 </body>
 </html>
