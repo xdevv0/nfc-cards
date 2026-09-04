@@ -3,293 +3,479 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beetle Sweet | بطاقة الكافيه الذكية</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <title>Betle Sweet | القهوة والحلويات الفاخرة</title>
+    <!-- إضافة خط عربي أنيق -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <!-- أيقونات Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Cairo', sans-serif; }
+        /* --- تصميم Betle Sweet العصري الداكن والدافئ --- */
+        :root {
+            --bg-dark: #151312;
+            --bg-card: #1f1b18;
+            --text-light: #f5f0eb;
+            --text-muted: #b8aba2;
+            --primary-color: #d4a373; /* لون كراميلي دافئ ومميز للحلويات */
+            --hover-color: #e9edc9;
+            --accent-glow: rgba(212, 163, 115, 0.15);
+            --font-main: 'Cairo', sans-serif;
+            --transition: all 0.4s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            background: linear-gradient(135deg, #0f172a, #1e293b);
-            color: #ffffff;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
+            font-family: var(--font-main);
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            padding-top: 70px;
         }
-        .card-container {
-            width: 100%;
-            max-width: 420px;
-            background: rgba(255, 255, 255, 0.04);
-            backdrop-filter: blur(12px);
-            border: 2px solid rgba(255, 126, 14, 0.3);
-            border-radius: 28px;
-            padding: 30px 20px;
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
             text-align: center;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 10px;
         }
-        .logo-container {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 15px auto;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 3px solid #ff7e0e;
-            box-shadow: 0 0 20px rgba(255, 126, 14, 0.4);
-            background: #fff;
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* --- شريط التنقل (Navbar) --- */
+        nav {
+            background-color: rgba(21, 19, 18, 0.95);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 70px;
             display: flex;
-            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.6);
+            border-bottom: 1px solid rgba(212, 163, 115, 0.1);
+        }
+
+        .nav-container {
+            width: 95%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
             align-items: center;
         }
-        .logo-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            background: #ffffff;
-        }
-        h1 {
-            font-size: 26px;
+
+        .logo {
+            font-size: 1.6rem;
             font-weight: 900;
-            margin-bottom: 5px;
-            color: #ff7e0e;
+            color: var(--primary-color);
             letter-spacing: 1px;
         }
-        p.location {
-            font-size: 13px;
-            color: #38bdf8;
-            margin-bottom: 22px;
+
+        .logo i {
+            margin-left: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* --- قسم البداية (Hero Section) --- */
+        header#hero {
+            height: 85vh;
+            background: linear-gradient(rgba(21, 19, 18, 0.7), rgba(21, 19, 18, 0.9)), url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=1920&auto=format&fit=crop') no-repeat center center;
+            background-size: cover;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
-            line-height: 1.5;
-        }
-        .links-list {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-        .link-btn {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
-            color: #ffffff;
-            text-decoration: none;
-            padding: 15px 20px;
-            border-radius: 14px;
-            font-weight: 700;
-            font-size: 15px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            cursor: pointer;
-            width: 100%;
-        }
-        .link-btn:hover {
-            transform: translateY(-3px);
-            border-color: #ff7e0e;
-            background: rgba(255, 126, 14, 0.15);
-        }
-        .link-btn.whatsapp:hover { border-color: #25D366; background: rgba(37, 211, 102, 0.15); }
-        .link-btn.instagram:hover { border-color: #E1306C; background: rgba(225, 48, 108, 0.15); }
-        .link-btn.facebook:hover { border-color: #1877F2; background: rgba(24, 119, 242, 0.15); }
-        .link-btn.menu-btn { border-color: #ff7e0e; background: rgba(255, 126, 14, 0.1); }
-
-        .link-content {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .link-btn i {
-            font-size: 22px;
-        }
-        .whatsapp i { color: #25D366; }
-        .instagram i { color: #E1306C; }
-        .facebook i { color: #1877F2; }
-        .location-icon i { color: #ff7e0e; }
-        .menu-icon i { color: #ff7e0e; }
-
-        .arrow {
-            font-size: 14px;
-            color: #94a3b8;
-        }
-        
-        /* Modal / Menu Overlay */
-        .menu-modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-        .menu-content {
-            width: 100%;
-            max-width: 420px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid #ff7e0e;
-            border-radius: 28px;
-            padding: 25px 20px;
             text-align: center;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-        .menu-title {
-            font-size: 22px;
-            font-weight: 900;
-            color: #ff7e0e;
-            margin-bottom: 20px;
-        }
-        .close-btn {
-            background: #ef4444;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 10px;
-            font-weight: 700;
-            margin-top: 20px;
-            cursor: pointer;
-        }
-        .menu-image-container {
-            display: none;
-            margin-top: 15px;
-        }
-        .menu-image-container img {
-            width: 100%;
-            border-radius: 14px;
-            border: 2px solid rgba(255, 255, 255, 0.1);
         }
 
-        .footer {
-            margin-top: 30px;
-            font-size: 12px;
-            color: #64748b;
+        .hero-content {
+            width: 85%;
+            max-width: 800px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-content .highlight {
+            color: var(--primary-color);
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 35px;
+            color: var(--text-muted);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--bg-dark);
+            padding: 14px 35px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            border-radius: 50px;
+            box-shadow: 0 5px 20px rgba(212, 163, 115, 0.3);
+            border: 2px solid var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+        }
+
+        /* --- قسم القائمة والأصناف (Menu Grid) --- */
+        section#menu {
+            padding: 90px 0;
+            background-color: #12100f;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .menu-card {
+            background-color: var(--bg-card);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            transition: var(--transition);
+            border: 1px solid rgba(255,255,255,0.03);
+        }
+
+        .menu-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-color);
+            box-shadow: 0 15px 30px var(--accent-glow);
+        }
+
+        .card-img {
+            height: 190px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* صور تعبيرية مميزة للحلويات والقهوة */
+        .img-sweet1 { background-image: url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=400'); }
+        .img-sweet2 { background-image: url('https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=400'); }
+        .img-coffee1 { background-image: url('https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=400'); }
+        .img-coffee2 { background-image: url('https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=400'); }
+
+        .card-content {
+            padding: 22px;
+        }
+
+        .card-content h3 {
+            font-size: 1.35rem;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            height: 45px;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             border-top: 1px solid rgba(255,255,255,0.05);
             padding-top: 15px;
+        }
+
+        .price {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        .tag {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            background: #2a2421;
+            padding: 5px 12px;
+            border-radius: 20px;
+        }
+
+        /* --- قسم قصة Betle Sweet (About Us) --- */
+        section#about {
+            padding: 90px 0;
+        }
+
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .about-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 18px;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .about-img {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .about-img img {
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+            border: 1px solid rgba(212, 163, 115, 0.2);
+        }
+
+        /* --- تذييل الصفحة (Footer) --- */
+        footer {
+            background-color: #0d0b0a;
+            padding: 60px 0 25px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .contact-container h3 {
+            color: var(--primary-color);
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-container p {
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            font-size: 1.05rem;
+        }
+
+        .social-icons {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            background: var(--bg-card);
+            color: var(--primary-color);
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: var(--transition);
+            border: 1px solid rgba(212, 163, 115, 0.1);
+        }
+
+        .social-icons a:hover {
+            background: var(--primary-color);
+            color: var(--bg-dark);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            color: #777;
+            border-top: 1px solid rgba(255,255,255,0.03);
+            padding-top: 25px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.5rem; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <div class="card-container">
-        <div class="logo-container">
-            <img src="BEETLE.PNJ.jfif" alt="Beetle Sweet Logo" id="c-logo">
+    <!-- شريط التنقل -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo"><i class="fas fa-cookie-bite"></i> Betle Sweet</a>
+            <ul class="nav-links">
+                <li><a href="#hero">الرئيسية</a></li>
+                <li><a href="#menu">الأصناف</a></li>
+                <li><a href="#about">حكايتنا</a></li>
+                <li><a href="#contact">تواصل معنا</a></li>
+            </ul>
         </div>
-        
-        <h1>BEETLE SWEET</h1>
-        
-        <p class="location">
-            <i class="fa-solid fa-location-dot"></i>
-            قلقيلية - شارع الاستخبارات العسكرية - خلف حديقة الحيوانات
-        </p>
-        
-        <div class="links-list">
-            <button class="link-btn menu-btn" onclick="openMenu()">
-                <div class="link-content">
-                    <i class="fa-solid fa-book-open menu-icon"></i>
-                    <span>قائمة المنيو (الأقسام والأسعار)</span>
-                </div>
-                <i class="fa-solid fa-angle-left arrow"></i>
-            </button>
+    </nav>
 
-            <a href="https://wa.me/972566800919" class="link-btn whatsapp" target="_blank">
-                <div class="link-content">
-                    <i class="fa-brands fa-whatsapp"></i>
-                    <span>مراسلة عبر الواتساب</span>
-                </div>
-                <i class="fa-solid fa-angle-left arrow"></i>
-            </a>
-
-            <a href="https://instagram.com/beetle._sweet" class="link-btn instagram" target="_blank">
-                <div class="link-content">
-                    <i class="fa-brands fa-instagram"></i>
-                    <span>تابعنا على إنستغرام</span>
-                </div>
-                <i class="fa-solid fa-angle-left arrow"></i>
-            </a>
-
-            <a href="https://www.facebook.com/share/1DQ4Hu1Gde/?mibextid=wwXIfr" class="link-btn facebook" target="_blank">
-                <div class="link-content">
-                    <i class="fa-brands fa-facebook"></i>
-                    <span>صفحة الفيسبوك</span>
-                </div>
-                <i class="fa-solid fa-angle-left arrow"></i>
-            </a>
-
-            <a href="https://maps.google.com/?q=Qalqilya+Zoo" class="link-btn location-icon" target="_blank">
-                <div class="link-content">
-                    <i class="fa-solid fa-map-location-dot"></i>
-                    <span>موقعنا على الخريطة</span>
-                </div>
-                <i class="fa-solid fa-angle-left arrow"></i>
-            </a>
+    <!-- قسم البداية (Hero) -->
+    <header id="hero">
+        <div class="hero-content">
+            <h1>عالم من الحلاوة والفخامة في <span class="highlight">Betle Sweet</span></h1>
+            <p>تلذذ بأشهى الحلويات الطازجة وأرقى أنواع القهوة المصنوعة بشغف لأجلك.</p>
+            <a href="#menu" class="cta-button"><i class="fas fa-utensils"></i> تصفح القائمة</a>
         </div>
+    </header>
 
-        <div class="footer">
-        </div>
-    </div>
+    <!-- قسم القائمة (Menu) -->
+    <section id="menu">
+        <div class="container">
+            <h2 class="section-title">أبرز أصنافنا</h2>
+            <div class="menu-grid">
 
-    <div class="menu-modal" id="menuModal">
-        <div class="menu-content">
-            <div class="menu-title">اختر قسم المنيو</div>
-            <div class="links-list" id="menuCategories">
-                <button class="link-btn" onclick="showImage('img1.jpg')">
-                    <div class="link-content"><i class="fa-solid fa-utensils" style="color:#ff7e0e"></i><span>عصائر طبيعية & كوكتيل</span></div>
-                    <i class="fa-solid fa-angle-left arrow"></i>
-                </button>
-                <button class="link-btn" onclick="showImage('img2.jpg')">
-                    <div class="link-content"><i class="fa-solid fa-utensils" style="color:#ff7e0e"></i><span>مكسات عصائر طبيعية & بوظة</span></div>
-                    <i class="fa-solid fa-angle-left arrow"></i>
-                </button>
-                <button class="link-btn" onclick="showImage('img3.jpg')">
-                    <div class="link-content"><i class="fa-solid fa-utensils" style="color:#ff7e0e"></i><span>أيسات & موهيتو</span></div>
-                    <i class="fa-solid fa-angle-left arrow"></i>
-                </button>
-                <button class="link-btn" onclick="showImage('oll4.jpg')">
-                    <div class="link-content"><i class="fa-solid fa-utensils" style="color:#ff7e0e"></i><span>ميلك شيك</span></div>
-                    <i class="fa-solid fa-angle-left arrow"></i>
-                </button>
-                <button class="link-btn" onclick="showImage('oll5.jpg')">
-                    <div class="link-content"><i class="fa-solid fa-utensils" style="color:#ff7e0e"></i><span>مشروبات ساخنة & حلويات</span></div>
-                    <i class="fa-solid fa-angle-left arrow"></i>
-                </button>
+                <!-- صنف 1 -->
+                <div class="menu-card">
+                    <div class="card-img img-sweet1"></div>
+                    <div class="card-content">
+                        <h3>تشيز كيك فانيلا فاخر</h3>
+                        <p class="card-desc">مغطى بطبقة غنية من صوص التوت البري الطازج.</p>
+                        <div class="card-footer">
+                            <span class="price">٢٢ شيكل</span>
+                            <span class="tag"><i class="fas fa-star"></i> الأكثر طلباً</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- صنف 2 -->
+                <div class="menu-card">
+                    <div class="card-img img-sweet2"></div>
+                    <div class="card-content">
+                        <h3>مولتن كيك الشوكولاتة</h3>
+                        <p class="card-desc">كيك شوكولاتة دافئ يذوب في الفم مع الشوكولاتة السائلة.</p>
+                        <div class="card-footer">
+                            <span class="price">٢٥ شيكل</span>
+                            <span class="tag"><i class="fas fa-fire"></i> ساخن</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- صنف 3 -->
+                <div class="menu-card">
+                    <div class="card-img img-coffee1"></div>
+                    <div class="card-content">
+                        <h3>لاتيه الحرير</h3>
+                        <p class="card-desc">إسبريسو غني مع رغوة الحليب المخملية الناعمة.</p>
+                        <div class="card-footer">
+                            <span class="price">١٦ شيكل</span>
+                            <span class="tag"><i class="fas fa-coffee"></i> قهوة</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- صنف 4 -->
+                <div class="menu-card">
+                    <div class="card-img img-coffee2"></div>
+                    <div class="card-content">
+                        ### سبانيش لاتيه بارد
+                        <p class="card-desc">مزيج منعش من القهوة والحليب المحلى الخاص بلمسة الثلج.</p>
+                        <div class="card-footer">
+                            <span class="price">١٨ شيكل</span>
+                            <span class="tag"><i class="fas fa-snowflake"></i> بارد</span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-
-            <div class="menu-image-container" id="imageContainer">
-                <img id="displayedMenuImg" src="" alt="Menu Section">
-                <button class="link-btn" style="margin-top: 15px; justify-content: center; background: rgba(255,126,14,0.2);" onclick="backToCategories()">
-                    <span>العودة للأقسام</span>
-                </button>
-            </div>
-
-            <button class="close-btn" onclick="closeMenu()">إغلاق المنيو</button>
         </div>
-    </div>
+    </section>
 
-    <script>
-        function openMenu() {
-            document.getElementById('menuModal').style.display = 'flex';
-        }
-        function closeMenu() {
-            document.getElementById('menuModal').style.display = 'none';
-            backToCategories();
-        }
-        function showImage(imgName) {
-            document.getElementById('menuCategories').style.display = 'none';
-            const imgContainer = document.getElementById('imageContainer');
-            const imgElement = document.getElementById('displayedMenuImg');
-            imgElement.src = imgName;
-            imgContainer.style.display = 'block';
-        }
-        function backToCategories() {
-            document.getElementById('imageContainer').style.display = 'none';
-            document.getElementById('menuCategories').style.display = 'flex';
-        }
-    </script>
+    <!-- قسم قصة المحل (About Us) -->
+    <section id="about">
+        <div class="container about-container">
+            <div class="about-text">
+                <h2>نصنع السعادة في كل قطعة</h2>
+                <p>في **Betle Sweet**، نؤمن بأن الحلويات ليست مجرد طعام، بل هي تجربة تفرح القلب وتصنع الذكريات الجميلة. نستخدم أجود المكونات الطبيعية الطازجة لنقدم لك طعماً لا يُنسى.</p>
+                <p>سواء كنت تبحث عن لحظة هدوء مع كوب قهوة دافئ أو ترغب في الاحتفال بلحظاتك الحلوة، نحن هنا لنمنحك الأفضل دائماً.</p>
+            </div>
+            <div class="about-img">
+                <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=600&auto=format&fit=crop" alt="أجواء Betle Sweet">
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم التواصل والتذييل -->
+    <footer id="contact">
+        <div class="container contact-container">
+            <h3>زورونا واكتشفوا المزيد</h3>
+            <p><i class="fas fa-map-marker-alt"></i> العنوان: فلسطين</p>
+            <p><i class="fas fa-phone-alt"></i> الهاتف المباشر للطلب</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+        <p class="copyright">جميع الحقوق محفوظة لـ &copy; Betle Sweet</p>
+    </footer>
 
 </body>
 </html>
